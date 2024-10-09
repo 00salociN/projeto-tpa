@@ -1,0 +1,33 @@
+programa {
+  funcao inicio() {
+    inteiro opcao
+
+
+    escreva("1-Venda a Vista")
+    escreva("2-Venda a Prazo 30 dias\n")
+    escreva("3-Venda a Prazo 60 dias\n")
+    escreva("4-Venda a Prazo com 90 dias\n")
+    escreva("5-Venda com cartão de débito\n")
+    escreva("6-Venda com cartão de crédito\n")
+    leia(opcao)
+
+
+    escolha(opcao)
+{
+    caso 1:
+    escreva("Vendaa a vista") pare
+    caso 2:
+    escreva("Venda a prazo de 30 dias") pare
+    caso 3:
+    escreva("Venda a prazo de 60 dias") pare
+    caso 4:
+    escreva("Venda a prazo de 90 dias") pare
+    caso 5:
+    escreva("Venda com cartão de débito") pare
+    caso 6:
+    escreva("Venda com cartão de crédito") pare
+    caso contrario:
+    escreva("Inváido")
+}
+      }
+}
