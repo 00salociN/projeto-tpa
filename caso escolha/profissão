@@ -1,0 +1,32 @@
+programa {
+  funcao inicio() {
+    real profisao, sal, gen, eng, tec
+
+
+    escreva("101) Gerente \n")
+    escreva("102) Engenheiro \n")
+    escreva("103) Técnico \n")
+    escreva("Escolha sua profissão: ")
+    leia(profisao)
+
+
+    escreva("Digite seu salário: ")
+    leia(sal)
+
+
+    gen = sal * 1.10
+    eng = sal * 1.20
+    tec = sal * 1.30
+    escolha(profisao)
+{
+    caso 101:
+    escreva("O seu salário era de ", sal, " e agora é de ", gen) pare    
+    caso 102:
+    escreva("O seu salário era de ", sal, " e agora é de ", eng) pare    
+    caso 103:
+    escreva("O seu salário era de ", sal, " e agora é de ", tec) pare
+    caso contrario:
+    escreva("Inválido")
+    }
+  }
+}
