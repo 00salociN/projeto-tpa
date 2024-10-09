@@ -17,3 +17,5 @@ programa {
 	senao{ 
   	escreva(media, " Reprovado") 
 	} 
+	}
+	}
