@@ -1,0 +1,40 @@
+programa {
+  funcao inicio() {
+    inteiro opcao, valor, final, opcao
+
+
+    escreva("1-Venda a Vista desconto de 10%\n")
+    escreva("2-Venda a Prazo 30 dias desconto de 5%\n")
+    escreva("3-Venda a Prazo 60 dias mesmo preço\n")
+    escreva("4-Venda a Prazo com 90 dias acréscimo de 5%\n")
+    escreva("5-Venda com cartão de débito desconto de 8%\n")
+    escreva("6-Venda com cartão de crédito desconto de 7%\n")
+    escreva("Opção: ")
+    leia(opcao)
+
+
+    escreva("Digite o valor: ")
+    leia(valor)
+
+
+
+
+    escolha(opcao)
+{
+    caso 1:
+   final = valor * 0.90 escreva(final) pare
+    caso 2:
+    final = valor * 0.95 escreva(final)   pare
+    caso 3:
+final = valor escreva(valor) pare
+    caso 4:
+    final = valor * 1.05 escreva(final) pare
+    caso 5:
+    final = valor * 0.92 escreva(final) pare
+    caso 6:
+    final = valor * 0.97 escreva(final) pare
+    caso contrario:
+    escreva("Inváido")
+}
+      }
+}
