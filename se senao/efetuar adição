@@ -1,0 +1,23 @@
+programa {
+  funcao inicio() {
+    inteiro n1, n2, soma, soma1, soma2
+
+
+    escreva("Digite o primeiro número: ")
+    leia(n1)
+    escreva("Digite o segundo número: ")
+    leia(n2)
+   
+    soma = n1 + n2
+    soma1 = soma + 8
+    soma2 = soma - 5
+
+
+    se(soma >= 20){
+      escreva("A soma deu ", soma, " acrescentando mais 8, a conta fica ", soma1)
+    }
+    senao{
+      escreva("A soma deu ", soma, " subtraindo por 5, a conta fica ", soma2)
+    }
+  }
+}
