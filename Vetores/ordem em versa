@@ -1,0 +1,33 @@
+programa
+{
+  funcao inicio()
+  {
+    inteiro vetor[10]
+    inteiro i
+   
+    para (inteiro i = 0; i < 10; i++)
+    {
+      escreva("Digite os números: ")
+      leia(vetor[i])
+    }
+
+
+
+
+    escreva ("\nVetor na ordem original:\n")
+   
+    para(inteiro i = 0; i < 10; i++)
+    {
+      escreva (vetor[i], " ")
+    }
+   
+
+
+    escreva ("\n\nVetor na ordem inversa:\n")
+   
+    para(inteiro i = 9; i >=0; i--)
+    {
+      escreva (vetor[i], " ")
+    }
+  }
+}
