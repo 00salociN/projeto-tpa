@@ -1,0 +1,20 @@
+programa {
+  funcao inicio() {
+    real sal, pres
+
+
+    escreva("Digite o valor do seu salário bruto: ")
+    leia(sal)
+    escreva("Digite o valor da prestação: ")
+    leia(pres)
+
+
+    se(sal * 0.30 < pres){
+      escreva("Não poderá realizar o empréstimo")
+    }
+    senao{
+      escreva("Poderá realizar o empréstimo")
+    }
+    }
+  }
+}
