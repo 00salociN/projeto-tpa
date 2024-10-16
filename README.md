@@ -1,4 +1,5 @@
-Técnicas de Programção de Algoritmos - ETEC 2024
+##Técnicas de Programção de Algoritmos - ETEC 2024
+Este trabalho foi desenvolvido em Portugol e explora o uso de vetores e estruturas de controles como "caso escolha", "se" e "senao".
 
 > [!IMPORTANT]
 > O que é Lógica de programação?
