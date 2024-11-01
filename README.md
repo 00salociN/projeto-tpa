@@ -1,5 +1,5 @@
 # Técnicas de Programção de Algoritmos - ETEC 2024
-Este trabalho foi desenvolvido em Portugol e explora o uso de vetores e estruturas de controles como "caso escolha", "se" e "senao".
+Este trabalho foi desenvolvido em Portugol e explora o uso de vetores e estruturas de controles como "caso escolha", "se", "senao" e "vetores".
 
 > [!IMPORTANT]
 > O que é Lógica de programação?
