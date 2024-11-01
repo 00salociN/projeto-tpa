@@ -1,0 +1,39 @@
+programa { 
+
+  funcao inicio() { 
+
+   inteiro numero 
+
+   inteiro somapar = 0 
+
+   inteiro prodimpar = 1 
+
+ 
+
+   para (inteiro i = 1; i <= 10; i++) { 
+
+    escreva("Digite o ", i, " o número: ") 
+
+    leia(numero) 
+
+ 
+
+    se(numero % 2 == 0) { 
+
+      somapar = somapar + numero 
+
+    } senao { 
+
+      prodimpar = prodimpar * numero 
+
+    } 
+
+   }  
+
+   escreva("A soma dos pares é: ", somapar, "\n") 
+
+   escreva("O produto dos ímpares é: ", prodimpar) 
+
+  } 
+
+} 
