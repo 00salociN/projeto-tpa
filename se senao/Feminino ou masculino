@@ -1,0 +1,47 @@
+programa { 
+
+  funcao inicio() { 
+
+   caracter sexu 
+
+   inteiro fe = 0 
+
+   inteiro ma = 0 
+
+   inteiro lo = 0 
+
+ 
+
+   para (inteiro i = 1; i <= 10; i++) { 
+
+    escreva("Digite o ", i, " o alguem sexo entre 'F' e 'M': ") 
+
+    leia(sexu)  
+
+ 
+
+    se (sexu == "F"){  
+
+      fe = fe + 1 
+
+    } senao se (sexu == "M") { 
+
+      ma = ma + 1 
+
+    } senao { 
+
+      lo = lo + 1 
+
+    } 
+
+    } 
+
+    escreva("Masculino igual a: ", ma, "\n") 
+
+    escreva("Feminino igual a: ", fe, "\n") 
+
+    escreva("Sexo inválido igual a: ", lo, "\n") 
+
+  } 
+
+} 
