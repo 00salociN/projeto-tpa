@@ -1,0 +1,144 @@
+import random
+
+# Banco de dados de usuários em memória
+usuarios = {}
+
+# Função para registrar um novo usuário
+def registrar_usuario():
+    cpf = input("Digite seu CPF: ")
+    if cpf in usuarios:
+        print("Usuário já registrado.")
+    else:
+        senha = input("Crie uma senha: ")
+        usuarios[cpf] = {"senha": senha, "saldo": 0.0, "gastos_cartao": 0.0, "limite_cartao": 1000.0, "investimentos": 0.0, "extrato": []}
+        print("Usuário registrado com sucesso!")
+
+# Função para login do usuário
+def login():
+    cpf = input("Digite seu CPF: ")
+    senha = input("Digite sua senha: ")
+    if cpf in usuarios and usuarios[cpf]["senha"] == senha:
+        print("Login bem-sucedido!")
+        return cpf
+    else:
+        print("CPF ou senha incorretos.")
+        return None
+
+# Função para consultar saldo e extrato
+def consultar_saldo_extrato(cpf):
+    usuario = usuarios[cpf]
+    print(f"\nSaldo: R${usuario['saldo']:.2f}")
+    print("Extrato:")
+    for transacao in usuario["extrato"]:
+        print(f"- {transacao}")
+    print("\n")
+
+# Função de depósito
+def depositar(cpf):
+    usuario = usuarios[cpf]
+    valor = float(input("Valor do depósito: R$"))
+    usuario['saldo'] += valor
+    usuario['extrato'].append(f"Depósito: +R${valor:.2f}")
+    print("Depósito realizado com sucesso.")
+
+# Função de saque
+def sacar(cpf):
+    usuario = usuarios[cpf]
+    valor = float(input("Valor do saque: R$"))
+    if valor <= usuario['saldo']:
+        usuario['saldo'] -= valor
+        usuario['extrato'].append(f"Saque: -R${valor:.2f}")
+        print("Saque realizado com sucesso.")
+    else:
+        print("Saldo insuficiente.")
+
+# Função de uso do cartão de crédito
+def controle_cartao_credito(cpf):
+    usuario = usuarios[cpf]
+    print(f"Limite: R${usuario['limite_cartao']:.2f}")
+    print(f"Gastos: R${usuario['gastos_cartao']:.2f}")
+    valor = float(input("Valor da compra: R$"))
+    if usuario['gastos_cartao'] + valor <= usuario['limite_cartao']:
+        usuario['gastos_cartao'] += valor
+        usuario['extrato'].append(f"Compra no cartão: -R${valor:.2f}")
+        print("Compra realizada.")
+    else:
+        print("Limite excedido.")
+
+# Função de pagamento ou transferência
+def pagamentos_transferencias(cpf):
+    usuario = usuarios[cpf]
+    valor = float(input("Valor a ser transferido/pago: R$"))
+    if valor <= usuario['saldo']:
+        usuario['saldo'] -= valor
+        usuario['extrato'].append(f"Transferência/Pagamento: -R${valor:.2f}")
+        print("Operação realizada com sucesso.")
+    else:
+        print("Saldo insuficiente.")
+
+# Função de investimento
+def investimentos(cpf):
+    usuario = usuarios[cpf]
+    valor = float(input("Valor do investimento: R$"))
+    if valor <= usuario['saldo']:
+        usuario['saldo'] -= valor
+        usuario['investimentos'] += valor
+        usuario['extrato'].append(f"Investimento: -R${valor:.2f}")
+        print("Investimento realizado.")
+    else:
+        print("Saldo insuficiente.")
+
+# Menu principal
+def menu_principal(cpf):
+    while True:
+        print("\n--- MENU PRINCIPAL ---")
+        print("1. Consultar saldo e extrato")
+        print("2. Depósito")
+        print("3. Saque")
+        print("4. Cartão de crédito")
+        print("5. Pagamentos e transferências")
+        print("6. Investimentos")
+        print("7. Sair")
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            consultar_saldo_extrato(cpf)
+        elif opcao == "2":
+            depositar(cpf)
+        elif opcao == "3":
+            sacar(cpf)
+        elif opcao == "4":
+            controle_cartao_credito(cpf)
+        elif opcao == "5":
+            pagamentos_transferencias(cpf)
+        elif opcao == "6":
+            investimentos(cpf)
+        elif opcao == "7":
+            print("Saindo da conta.")
+            break
+        else:
+            print("Opção inválida.")
+
+# Função para iniciar o sistema
+def iniciar_sistema():
+    while True:
+        print("\n--- SISTEMA BANCÁRIO ---")
+        print("1. Entrar na conta")
+        print("2. Criar uma nova conta")
+        print("3. Sair")
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            cpf = login()
+            if cpf:
+                menu_principal(cpf)
+        elif opcao == "2":
+            registrar_usuario()
+        elif opcao == "3":
+            print("Encerrando o sistema.")
+            break
+        else:
+            print("Opção inválida.")
+
+# Inicia o sistema bancário
+iniciar_sistema()
