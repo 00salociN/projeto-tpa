@@ -1,0 +1,29 @@
+programa {
+  inclua biblioteca Matematica --> mat// para podermos utilizarmos a operação raiz e potencia
+  funcao inicio() {
+    real a, b, c, delta, bhaskara, bhaskara_neg, raiz_quadrada, bb
+
+    escreva("Escreva o valor a: ")
+    leia(a)
+
+    escreva("Escreva o valor b: ")
+    leia(b)
+
+    escreva("Escreva o valor c: ")
+    leia(c)
+
+    bb = mat.potencia(b, 2.0) // calcula b ao quadrado
+
+    delta = bb - (4*a*c) // calcula delta
+    escreva("O valor de delta é:",delta) // mostra o resultado para o usuario
+
+    raiz_quadrada = mat.raiz(delta, 2.0) // calcula a raiz (delta)
+
+    bhaskara = (-b + raiz_quadrada) / (2*a) // primeira solução de bhaskara
+    bhaskara_neg = (-b - raiz_quadrada) / (2*a) // segunda solução de bhaskara
+
+    escreva("\nO valor de bhaskara positivo é: ",bhaskara,"\n") // mostra o resultado da s1 para o usuario
+    escreva("\nO valor de bhaskara negativo é: ",bhaskara_neg,"\n") // mostra o resultado da s2 para o usuario
+
+  }
+}
