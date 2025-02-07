@@ -15,9 +15,10 @@ programa {
     bb = mat.potencia(b, 2.0) // calcula b ao quadrado
 
     delta = bb - (4*a*c) // calcula delta
-    escreva("O valor de delta é:",delta) // mostra o resultado para o usuario
+    escreva("O valor de delta é: ",delta,"\n") // mostra o resultado de delta para o usuario
 
     raiz_quadrada = mat.raiz(delta, 2.0) // calcula a raiz (delta)
+    escreva("\nO valor da raiz de delta é: ",raiz_quadrada,"\n") // mostra o resultado da raiz de delta para o usuario
 
     bhaskara = (-b + raiz_quadrada) / (2*a) // primeira solução de bhaskara
     bhaskara_neg = (-b - raiz_quadrada) / (2*a) // segunda solução de bhaskara
