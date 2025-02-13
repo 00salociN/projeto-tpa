@@ -1,0 +1,35 @@
+programa {
+  funcao inicio() {
+    inteiro x, valor = 1, divisores = 0
+    // valor = guarda os números pelos quais o x será dividido
+    // divisores = divisores possíveis
+
+    escreva("Digite um valor inteiro qualquer: ")
+    leia(x)
+
+    se(x > 0) // condição para realizar o teste
+    {
+      enquanto(valor <= x) // se o valor for menor ou igual a x o teste continuará sendo executado
+      {
+        se (x % valor == 0) // verificar se a divisão é exata
+        {
+          divisores++ // divisores recebe mais um 
+        }
+        valor++ // valor recebe mais um
+      }
+
+      se(divisores == 2) // condição para ser um número primo 
+      {
+        escreva("O valor ",x," digitado é um número primo\n")
+      }
+      senao // número possível de divisores superior a 2 (teste falho)
+      {
+        escreva("O valor ",x," digitado não é um número primo\n")
+      }
+    }
+    senao // teste falso 
+    {
+      escreva("Valor inválido")
+    } 
+  }
+}
