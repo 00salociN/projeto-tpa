@@ -1,0 +1,55 @@
+programa {
+/*
++---+---+---+
+|0,0|0,1|0,2|
++---+---+---+
+|1,0|1,1|1,2|
++---+---+---+
+|2,0|2,1|2,2|
+*/
+  funcao inicio() {
+    inteiro jogo[3][3]
+    inteiro linha, coluna, jogador, jogada
+    caracter simbolo
+
+    // Inicializa a matriz com -1 (representando espaços vazios)
+    para (linha = 0; linha < 3; linha++) {
+      para (coluna = 0; coluna < 3; coluna++) {
+        jogo[linha][coluna] = -1
+      }
+    }
+
+    jogador = 0 // 0 para 'x' e 1 para 'o'
+
+    enquanto (verdadeiro) {
+      // Imprime o tabuleiro
+      para (linha = 0; linha < 3; linha++) {
+        escreva("\n+---+---+---+ \n")
+        para (coluna = 0; coluna < 3; coluna++) {
+          se (jogo[linha][coluna] == -1) {
+            escreva("|   ") // Espaço vazio
+          } senao se (jogo[linha][coluna] == 0) {
+            escreva("| x ")
+          } senao {
+            escreva("| o ")
+          }
+        }
+        escreva("|") // Fecha a linha do tabuleiro
+        escreva("") // Pula para a próxima linha
+      }
+      escreva("\n+---+---+---+ \n") // Imprime a linha final do tabuleiro
+
+      // Solicita a jogada do jogador
+      escreva("Jogador ", jogador + 1, ", insira sua jogada (linha e coluna): ")
+      leia(linha, coluna)
+
+      // Verifica se a jogada é válida
+      se (linha >= 0 e linha < 3 e coluna >= 0 e coluna < 3 e jogo[linha][coluna] == -1) {
+        jogo[linha][coluna] = jogador // Atualiza o tabuleiro
+        jogador = 1 - jogador // Alterna entre 0 e 1
+      } senao {
+        escreva("Jogada inválida! Tente novamente.")
+      }
+    }
+  }
+}
