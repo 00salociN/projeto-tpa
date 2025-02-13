@@ -1,6 +1,30 @@
 programa {
   funcao inicio() {
-    inteiro soma = 0, x
-    escreva("EEscreva um número inteiro: ")
-  }
+    inteiro x, valor = 1, divisores = 0
+    // o valor guarda os números pelos quais o x será dividido (1 até x - 1)
+    // os divisores guarda os somatórios dos divisores
+
+    escreva("Digite um número inteiro maior do que 1: ")
+    leia(x)
+
+    enquanto // fazer teste (sem limite)
+     (valor < x) // valor menor que x / x maior do que o valor 
+     {
+      se(x % valor == 0) // % operação de resto 
+      {
+        divisores = divisores + valor // divisores vai receber o que ele já tem mais o valor 
+      }
+      valor++ // valor recebe valor mais um (tem que ser fora do se, pois independente do teste ser verdadeiro ou falso devemos adicionar outro valor para ir para o próximo número)
+      // se valor não for menor do que x termina a repetição
+    }
+    se(divisores == x) // divisores igual a x (teste verdadeiro) 
+    {
+      escreva(x," é um número perfeito \n") 
+    }
+    senao // teste falso
+    {
+      escreva(x," não é um número perfeito \n")
+    }
+
+  }
 }
