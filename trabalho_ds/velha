@@ -9,21 +9,46 @@ programa {
 */
   funcao inicio() {
     inteiro jogo[3][3]
-    inteiro linha, coluna, jogador, jogada
+    inteiro linha, coluna, jogador, jogada, ganhou
     caracter simbolo
 
-    // Inicializa a matriz com -1 (representando espaços vazios)
-    para (linha = 0; linha < 3; linha++) {
+    para (linha = 0; linha < 3; linha++) { // represent os espaços vazios do jogo (inicialmente começa com os 9)
       para (coluna = 0; coluna < 3; coluna++) {
         jogo[linha][coluna] = -1
       }
     }
 
-    jogador = 0 // 0 para 'x' e 1 para 'o'
+    jogador = 0 // 0 para X, 1 para O
+    ganhou = -1 // Nenhum vencedor inicialmente
 
-    enquanto (verdadeiro) {
-      // Imprime o tabuleiro
-      para (linha = 0; linha < 3; linha++) {
+    enquanto (ganhou == -1) {
+      // Verifica se algum jogador venceu
+      // Linhas
+      para (linha = 0; linha < 3; linha++) { 
+        se (jogo[linha][0] == jogo[linha][1] e jogo[linha][1] == jogo[linha][2] e jogo[linha][0] != -1) {
+          ganhou = jogo[linha][0]
+        }
+      }
+      
+      // Colunas
+      para (coluna = 0; coluna < 3; coluna++) {
+        se (jogo[0][coluna] == jogo[1][coluna] e jogo[1][coluna] == jogo[2][coluna] e jogo[0][coluna] != -1) {
+          ganhou = jogo[0][coluna]
+        }
+      }
+
+      // Diagonais
+      se (jogo[0][0] == jogo[1][1] e jogo[1][1] == jogo[2][2] e jogo[0][0] != -1) {
+        ganhou = jogo[0][0]
+      }
+      se (jogo[0][2] == jogo[1][1] e jogo[1][1] == jogo[2][0] e jogo[0][2] != -1) {
+        ganhou = jogo[0][2]
+      }
+
+
+
+
+      para (linha = 0; linha < 3; linha++) { // imprime as linhas?
         escreva("\n+---+---+---+ \n")
         para (coluna = 0; coluna < 3; coluna++) {
           se (jogo[linha][coluna] == -1) {
@@ -34,8 +59,8 @@ programa {
             escreva("| o ")
           }
         }
-        escreva("|") // Fecha a linha do tabuleiro
-        escreva("") // Pula para a próxima linha
+        escreva("|") // lacunas 
+        escreva("")
       }
       escreva("\n+---+---+---+ \n") // Imprime a linha final do tabuleiro
 
@@ -43,13 +68,24 @@ programa {
       escreva("Jogador ", jogador + 1, ", insira sua jogada (linha e coluna): ")
       leia(linha, coluna)
 
-      // Verifica se a jogada é válida
+
       se (linha >= 0 e linha < 3 e coluna >= 0 e coluna < 3 e jogo[linha][coluna] == -1) {
-        jogo[linha][coluna] = jogador // Atualiza o tabuleiro
-        jogador = 1 - jogador // Alterna entre 0 e 1
-      } senao {
-        escreva("Jogada inválida! Tente novamente.")
-      }
-    }
+        jogo[linha][coluna] = jogador // atualiza o tabuleiro sempre após uma jogada
+        jogador = 1 - jogador // alterna 0 (x) e 1 (o)
+      }
+      senao {
+        escreva("Jogada inválida! Tente novamente.") }
+
+
+
+    se (ganhou == 0) {
+      escreva("Jogador 1 (X) venceu!")
+    } senao se (ganhou == 1) {
+      escreva("Jogador 2 (O) venceu!")
+    }
+    senao {
+      escreva("O jogo terminou empatado!")
+    }
   }
+}
 }
